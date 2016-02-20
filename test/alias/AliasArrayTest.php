@@ -80,6 +80,26 @@ class AliasArrayTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse($got);
     }
 
+    public function testArrayEndsWithSubObject() {
+        $dummy = new \stdClass();
+        $dummy->foo = "dummy";
+        $got = \ArrayEndsWith(array("test", $dummy), "my");
+        $this->assertTrue($got);
+    }
+
+    public function testArrayContainsSubObject() {
+        $dummy = new \stdClass();
+        $dummy->foo = "dummy";
+        $got = \ArrayContains(array("test", $dummy), "my");
+        $this->assertTrue($got);
+    }
+    public function testArrayStartsWithSubObject() {
+        $dummy = new \stdClass();
+        $dummy->foo = "dummy";
+        $got = \ArrayStartsWith(array("test",$dummy), "dumm");
+        $this->assertTrue($got);
+    }
+
 }
 
 ?>
