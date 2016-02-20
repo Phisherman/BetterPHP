@@ -52,9 +52,8 @@ class AutoMap {
             if (error_reporting() == E_ALL) {
                 error_log($ex->getTrace());
             }
-        } finally {
-            return $php;
         }
+        return $php;
     }
 
 }
