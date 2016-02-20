@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Filter malicous content from superglobals
+ * Filter malicous content from arrays
  */
 class AutoFilter {
 
@@ -31,7 +31,7 @@ class AutoFilter {
         if (is_array($value) || is_object($value)) {
             return null;
         }
-        return $value;
+        return strip_tags($value);
     }
 
 }
