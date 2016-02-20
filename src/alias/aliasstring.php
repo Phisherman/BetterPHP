@@ -61,16 +61,18 @@ function EndsWith($haystack, $needle, $ignorecase = false) {
     }
     $haystackLength = strlen($haystack);
     $needleLength = strlen($needle);
-    if ($needleLength >= $haystackLength) {
+    if ($needleLength > $haystackLength) {
         return false;
-    }   
-    for ($i = 0; $i < $needleLength; $i++) {
-        $haystackIndex = $i+$needleLength +1;
-        if (($ignorecase === true && strtolower($haystack[$haystackIndex]) != strtolower($needle[$i])) || ($ignorecase === false && $haystack[$haystackIndex] != $needle[$i])) {
-            return false;
-        }
+    } 
+    if ($ignorecase){
+        $needle = strtolower($needle);
+        $haystack = strtolower($haystack);
     }
-    return true;
+    $index = strrpos($haystack, $needle);
+    if ($index === false){
+        return false;
+    }    
+    return $index + $needleLength == $haystackLength;
 }
 
 ?>
