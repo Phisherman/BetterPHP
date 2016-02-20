@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Find a needle in a array, but not like in_array, b/c recursive.
+ * Finds a needle in a (nested) array.
  * @param array $haystack The haystack to search in
  * @param string $needle the needle to find
  * @param bool $ignorecase should the function work case insensitive?
@@ -25,6 +25,13 @@ function ArrayContains($haystack, $needle, $ignorecase = false)
     return false;
 }
 
+/**
+ * Finds a needle in an (nested) array.
+ * @param array $haystack The haystack to search in
+ * @param string $needle the needle to find
+ * @param bool $ignorecase should the function work case insensitive?
+ * @return boolean
+ */
 function ArrayContainsIterative($haystack, $needle, $ignorecase = false)
 {
     if (empty($haystack) || empty($needle))
