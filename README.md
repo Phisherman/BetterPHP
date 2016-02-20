@@ -1,2 +1,2 @@
 # ButterPHP
-"Make PHP more smooth. And fat."
+"Makes PHP more smooth. And fat."
