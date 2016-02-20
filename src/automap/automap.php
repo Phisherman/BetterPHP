@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Automatic mapping of superblobal arrays into the $php array
+ */
 class AutoMap {
 
     /**
@@ -8,7 +11,7 @@ class AutoMap {
      * @return \stdClass
      */
     private static function ArrayToObject($input) {
-        if (is_null($input) || !is_array($input) || count($input) == 0) {
+        if (!isset($input) || is_null($input) || !is_array($input) || count($input) == 0) {
             return array();
         }
         $object = new \stdClass();
@@ -22,6 +25,12 @@ class AutoMap {
         }
         return $object;
     }
+
+    /**
+     * Will map $_POST, $_GET $_FILES $_SERVER $_SESSION (if started) $_COOKIE $_REQUEST and $_ENV to the $php object
+     * @global \stdClass $php
+     * @return \stdClass $php
+     */
     public static function Query() {
         global $php;
         $php = new \stdClass();
@@ -35,15 +44,19 @@ class AutoMap {
             "request" => $_REQUEST,
             "env" => $_ENV
         );
-        foreach ($globals as $key => $value) {
-            $php->{$key} = \AutoMap::ArrayToObject($value);
+        try {
+            foreach ($globals as $key => $value) {
+                $php->{$key} = \AutoMap::ArrayToObject($value);
+            }
+        } catch (\Exception $ex) {
+            if (error_reporting() == E_ALL) {
+                error_log($ex->getTrace());
+            }
+        } finally {
+            return $php;
         }
     }
 
 }
 
-$_POST["x"] = 5;
-$_POST["y"] = array("5", "5253");
-$_POST["fawf"] = array("key" => "value");
-\AutoMap::Query();
 ?>
