@@ -12,7 +12,7 @@ function ArrayContains($haystack, $needle, $ignorecase = false) {
         return false;
     }
     foreach ($haystack as $value) {
-        if (is_array($value)) {
+        if (is_array($value) || is_object($value)) {
             $sub = \ArrayContains($value, $needle, $ignorecase);
         } else {
             $sub = \Contains($value, $needle, $ignorecase);
@@ -36,7 +36,7 @@ function ArrayStartsWith($haystack, $needle, $ignorecase = false) {
         return false;
     }
     foreach ($haystack as $value) {
-        if (is_array($value)) {
+        if (is_array($value) || is_object($value)) {
             $sub = \ArrayStartsWith($value, $needle, $ignorecase);
         } else {
             $sub = \StartsWith($value, $needle, $ignorecase);
@@ -58,9 +58,9 @@ function ArrayStartsWith($haystack, $needle, $ignorecase = false) {
 function ArrayEndsWith($haystack, $needle, $ignorecase = false) {
     if (empty($haystack) || empty($needle) || !is_string($needle)) {
         return false;
-    }
+    }   
     foreach ($haystack as $value) {
-        if (!is_string($value)) {
+        if (is_array($value) || is_object($value)) {          
             $sub = \ArrayStartsWith($value, $needle, $ignorecase);
         } else {
             $sub = \EndsWith($value, $needle, $ignorecase);
