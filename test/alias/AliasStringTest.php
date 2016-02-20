@@ -1,6 +1,6 @@
 <?php
 
-class AliasTest extends PHPUnit_Framework_TestCase {
+class AliasStringTest extends PHPUnit_Framework_TestCase {
 
     public function testContainsTrue() {
         $got = \contains("hallo", "l");
@@ -68,7 +68,7 @@ class AliasTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testEndsWithTrue() {
-        $got = \EndsWith("hallo", "lo");
+        $got = \EndsWith("test", "st");
         $this->assertTrue($got);
     }
 
