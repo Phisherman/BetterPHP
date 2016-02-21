@@ -7,9 +7,8 @@
  * @param bool $ignorecase should the function work case insensitive?
  * @return boolean
  */
-function ArrayContains($haystack, $needle, $ignorecase = false)
-{
-    if (empty($haystack) || empty($needle)) {
+function ArrayContains($haystack, $needle, $ignorecase = false) {
+    if (empty($haystack) || empty($needle) || !is_string($needle)) {
         return false;
     }
     foreach ($haystack as $value) {
@@ -32,9 +31,8 @@ function ArrayContains($haystack, $needle, $ignorecase = false)
  * @param bool $ignorecase should the function work case insensitive?
  * @return boolean
  */
-function ArrayContainsIterative($haystack, $needle, $ignorecase = false)
-{
-    if (empty($haystack) || empty($needle))
+function ArrayContainsIterative($haystack, $needle, $ignorecase = false) {
+    if (empty($haystack) || empty($needle) || !is_string($needle))
         return false;
 
     //saves all arrays
@@ -59,9 +57,8 @@ function ArrayContainsIterative($haystack, $needle, $ignorecase = false)
  * @param bool $ignorecase should the function work case insensitive?
  * @return boolean
  */
-function ArrayStartsWith($haystack, $needle, $ignorecase = false)
-{
-    if (empty($haystack) || empty($needle)) {
+function ArrayStartsWith($haystack, $needle, $ignorecase = false) {
+    if (empty($haystack) || empty($needle) || !is_string($needle)) {
         return false;
     }
     foreach ($haystack as $value) {
@@ -84,18 +81,17 @@ function ArrayStartsWith($haystack, $needle, $ignorecase = false)
  * @param bool $ignorecase should the function work case insensitive?
  * @return boolean
  */
-function ArrayEndsWith($haystack, $needle, $ignorecase = false)
-{
+function ArrayEndsWith($haystack, $needle, $ignorecase = false) {
     if (empty($haystack) || empty($needle) || !is_string($needle)) {
         return false;
     }
     foreach ($haystack as $value) {
         if (is_array($value) || is_object($value)) {
-            $sub = \ArrayStartsWith($value, $needle, $ignorecase);
+            $sub = \ArrayEndsWith($value, $needle, $ignorecase);
         } else {
             $sub = \EndsWith($value, $needle, $ignorecase);
         }
-        if ($sub) {
+        if ($sub === true) {
             return true;
         }
     }

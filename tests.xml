@@ -1,6 +1,6 @@
 <phpunit bootstrap="./test/bootstrap.php">
     <testsuites>
-        <testsuite name="betterPHP-Test">
+        <testsuite name="butterPHP-Test">
             <directory>./test/</directory>
         </testsuite>
     </testsuites>
