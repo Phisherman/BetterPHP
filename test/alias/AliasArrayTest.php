@@ -2,151 +2,151 @@
 
 class AliasArrayTest extends PHPUnit_Framework_TestCase {
 
-    public function testArrayContainsTrue() {
-        $got = \BTRArray::ArrayContains(array("test"), "te");
+    public function testContainsTrue() {
+        $got = \BTRArray::Contains(array("test"), "te");
         $this->assertTrue($got);
     }
 
-    public function testArrayContainsTrueDeepArray() {
+    public function testContainsTrueDeepArray() {
         $data = array("test", array("subtest", "needle"));
-        $got = \BTRArray::ArrayContains($data, "needle");
+        $got = \BTRArray::Contains($data, "needle");
         $this->assertTrue($got);
     }
 
-    public function testArrayContainsTrueIgnoreCase() {
-        $got = \BTRArray::ArrayContains(array("test"), "TES", true);
+    public function testContainsTrueIgnoreCase() {
+        $got = \BTRArray::Contains(array("test"), "TES", true);
         $this->assertTrue($got);
     }
 
-    public function testArrayContainsNeedleEmpty() {
-        $got = \BTRArray::ArrayContains(array("test"), "");
+    public function testContainsNeedleEmpty() {
+        $got = \BTRArray::Contains(array("test"), "");
         $this->assertFalse($got);
     }
 
-    public function testArrayContainsHaystackEmpty() {
-        $got = \BTRArray::ArrayContains(array(), "x");
+    public function testContainsHaystackEmpty() {
+        $got = \BTRArray::Contains(array(), "x");
         $this->assertFalse($got);
     }
 
-    public function testArrayContainsIterativeTrue() {
-        $got = \BTRArray::ArrayContainsIterative(array("test"), "te");
+    public function testContainsIterativeTrue() {
+        $got = \BTRArray::ContainsIterative(array("test"), "te");
         $this->assertTrue($got);
     }
 
-    public function testArrayContainsIterativeTrueDeepArray() {
+    public function testContainsIterativeTrueDeepArray() {
         $data = array("test", array("subtest", "subtest"), "subtest", array("subtest", "subtest", array("subtest", "needle")));
-        $got = \BTRArray::ArrayContainsIterative($data, "needle");
+        $got = \BTRArray::ContainsIterative($data, "needle");
         $this->assertTrue($got);
     }
 
-    public function testArrayContainsIterativeTrueIgnoreCase() {
-        $got = \BTRArray::ArrayContainsIterative(array("test"), "TES", true);
+    public function testContainsIterativeTrueIgnoreCase() {
+        $got = \BTRArray::ContainsIterative(array("test"), "TES", true);
         $this->assertTrue($got);
     }
 
-    public function testArrayContainsIterativeNeedleEmpty() {
-        $got = \BTRArray::ArrayContainsIterative(array("test"), "");
+    public function testContainsIterativeNeedleEmpty() {
+        $got = \BTRArray::ContainsIterative(array("test"), "");
         $this->assertFalse($got);
     }
 
-    public function testArrayContainsIterativeHaystackEmpty() {
-        $got = \BTRArray::ArrayContainsIterative(array(), "x");
+    public function testContainsIterativeHaystackEmpty() {
+        $got = \BTRArray::ContainsIterative(array(), "x");
         $this->assertFalse($got);
     }
 
-    public function testArrayStartsWithTrue() {
-        $got = \BTRArray::ArrayStartsWith(array("test"), "te");
+    public function testStartsWithTrue() {
+        $got = \BTRArray::StartsWith(array("test"), "te");
         $this->assertTrue($got);
     }
 
-    public function testArrayStartsWithTrueDeepArray() {
+    public function testStartsWithTrueDeepArray() {
         $data = array("test", array("subtest", "needle"));
-        $got = \BTRArray::ArrayStartsWith($data, "sub");
+        $got = \BTRArray::StartsWith($data, "sub");
         $this->assertTrue($got);
     }
 
-    public function testArrayStartsWithTrueIgnoreCase() {
-        $got = \BTRArray::ArrayStartsWith(array("test"), "TE", true);
+    public function testStartsWithTrueIgnoreCase() {
+        $got = \BTRArray::StartsWith(array("test"), "TE", true);
         $this->assertTrue($got);
     }
 
-    public function testArrayStartsWithNeedleEmpty() {
-        $got = \BTRArray::ArrayStartsWith(array("test"), "");
+    public function testStartsWithNeedleEmpty() {
+        $got = \BTRArray::StartsWith(array("test"), "");
         $this->assertFalse($got);
     }
 
-    public function testArrayStartsWithHaystackEmpty() {
-        $got = \BTRArray::ArrayStartsWith(array(), "x");
+    public function testStartsWithHaystackEmpty() {
+        $got = \BTRArray::StartsWith(array(), "x");
         $this->assertFalse($got);
     }
 
-    public function testArrayEndsWithTrue() {
-        $got = \BTRArray::ArrayEndsWith(array("test"), "st");
+    public function testEndsWithTrue() {
+        $got = \BTRArray::EndsWith(array("test"), "st");
         $this->assertTrue($got);
     }
 
-    public function testArrayEndsWithTrueDeepArray() {
+    public function testEndsWithTrueDeepArray() {
         $data = array("test", array("subtest", "needle"));
-        $got = \BTRArray::ArrayEndsWith($data, "test");
+        $got = \BTRArray::EndsWith($data, "test");
         $this->assertTrue($got);
     }
 
-    public function testArrayEndsWithTrueIgnoreCase() {
-        $got = \BTRArray::ArrayEndsWith(array("test"), "ST", true);
+    public function testEndsWithTrueIgnoreCase() {
+        $got = \BTRArray::EndsWith(array("test"), "ST", true);
         $this->assertTrue($got);
     }
 
-    public function testArrayEndsWithNeedleEmpty() {
-        $got = \BTRArray::ArrayEndsWith(array("test"), "");
+    public function testEndsWithNeedleEmpty() {
+        $got = \BTRArray::EndsWith(array("test"), "");
         $this->assertFalse($got);
     }
 
-    public function testArrayEndsWithHaystackEmpty() {
-        $got = \BTRArray::ArrayEndsWith(array(), "x");
+    public function testEndsWithHaystackEmpty() {
+        $got = \BTRArray::EndsWith(array(), "x");
         $this->assertFalse($got);
     }
 
-    public function testArrayEndsWithSubObject() {
+    public function testEndsWithSubObject() {
         $dummy = new \stdClass();
         $dummy->foo = "dummy";
-        $got = \BTRArray::ArrayEndsWith(array("test", $dummy), "my");
+        $got = \BTRArray::EndsWith(array("test", $dummy), "my");
         $this->assertTrue($got);
     }
 
-    public function testArrayContainsSubObject() {
+    public function testContainsSubObject() {
         $dummy = new \stdClass();
         $dummy->foo = "dummy";
-        $got = \BTRArray::ArrayContains(array("test", $dummy), "mm");
+        $got = \BTRArray::Contains(array("test", $dummy), "mm");
         $this->assertTrue($got);
     }
 
-    public function testArrayStartsWithSubObject() {
+    public function testStartsWithSubObject() {
         $dummy = new \stdClass();
         $dummy->foo = "dummy";
-        $got = \BTRArray::ArrayStartsWith(array("test", $dummy), "dumm");
+        $got = \BTRArray::StartsWith(array("test", $dummy), "dumm");
         $this->assertTrue($got);
     }
 
-    public function testArrayMatchNeedleEmpty() {
-        $got = \BTRArray::ArrayMatch(array("test"), "");
+    public function testMatchNeedleEmpty() {
+        $got = \BTRArray::Match(array("test"), "");
         $this->assertFalse($got);
     }
 
-    public function testArrayMatchHaystackEmpty() {
-        $got = \BTRArray::ArrayMatch(array(), "x");
+    public function testMatchHaystackEmpty() {
+        $got = \BTRArray::Match(array(), "x");
         $this->assertFalse($got);
     }
 
-    public function testArrayMatchSubObject() {
+    public function testMatchSubObject() {
         $dummy = new \stdClass();
         $dummy->foo = "dummy";
-        $got = \BTRArray::ArrayMatch(array("test", $dummy), "/my/");
+        $got = \BTRArray::Match(array("test", $dummy), "/my/");
         $this->assertTrue($got);
     }
 
-    public function testArrayMatchTrueDeepArray() {
+    public function testMatchTrueDeepArray() {
         $data = array("test", array("subtest", "needle"));
-        $got = \BTRArray::ArrayMatch($data, "/[s]+/");
+        $got = \BTRArray::Match($data, "/[s]+/");
         $this->assertTrue($got);
     }
 
