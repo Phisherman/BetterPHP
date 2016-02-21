@@ -3,7 +3,7 @@
 /**
  * Automatic mapping of superblobal arrays into the $php array
  */
-class AutoMap {
+class BTRAutoMap {
 
     /**
      * Convert an array to a object
@@ -18,7 +18,7 @@ class AutoMap {
         foreach ($input as $key => $value) {
             $key = strtolower($key);
             if (is_array($value)) {
-                $object->{$key} = \AutoMap::ArrayToObject($value);
+                $object->{$key} = \BTRAutoMap::ArrayToObject($value);
             } else {
                 $object->{$key} = $value;
             }
@@ -46,7 +46,7 @@ class AutoMap {
         );
         try {
             foreach ($globals as $key => $value) {
-                $php->{$key} = \AutoMap::ArrayToObject($value);
+                $php->{$key} = \BTRAutoMap::ArrayToObject($value);
             }
         } catch (\Exception $ex) {
             if (error_reporting() == E_ALL) {

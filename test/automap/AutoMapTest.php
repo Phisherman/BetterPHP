@@ -4,7 +4,7 @@ class AutoMapTest extends PHPUnit_Framework_TestCase {
 
     public function testIsSetUp() {
         global $php;
-        \AutoMap::Query();
+        \BTRAutoMap::Query();
         $this->assertTrue(!is_null($php));
     }
 
@@ -12,7 +12,7 @@ class AutoMapTest extends PHPUnit_Framework_TestCase {
         //Arrange
         $_GET["test"] = 5;
         //Act
-        $php = \AutoMap::Query();
+        $php = \BTRAutoMap::Query();
         //Assert
         $this->assertTrue(property_exists($php, "get"));
         $this->assertTrue($php->get->test == 5);
@@ -25,7 +25,7 @@ class AutoMapTest extends PHPUnit_Framework_TestCase {
         $_GET["foo"]->sub = new \stdClass();
         $_GET["foo"]->sub->subsub = 5;
         //Act
-        $php = \AutoMap::Query();
+        $php = \BTRAutoMap::Query();
         //Assert
         $this->assertTrue(property_exists($php, "get"));
         $this->assertTrue($php->get->foo->bar == "42");
@@ -36,7 +36,7 @@ class AutoMapTest extends PHPUnit_Framework_TestCase {
         //Arrange
         $_GET["foo"] = null;
         //Act
-        $php = \AutoMap::Query();
+        $php = \BTRAutoMap::Query();
         //Assert
         $this->assertTrue($php->get->foo == null);
     }
@@ -45,14 +45,14 @@ class AutoMapTest extends PHPUnit_Framework_TestCase {
         //Arrange
         $_GET["foo"] = "";
         //Act
-        $php = \AutoMap::Query();
+        $php = \BTRAutoMap::Query();
         //Assert
         $this->assertTrue($php->get->foo == "");
     }
 
     public function testNothing() {
         //Act
-        $php = \AutoMap::Query();
+        $php = \BTRAutoMap::Query();
         //Assert
         $this->assertTrue(!is_null($php->get));
         $this->assertTrue(count((array)$php->get) == 0);
@@ -62,7 +62,7 @@ class AutoMapTest extends PHPUnit_Framework_TestCase {
         //Arrange
         $_GET["foo"] = 5;
         //Act
-        $php = \AutoMap::Query();
+        $php = \BTRAutoMap::Query();
         //Assert
         $this->assertTrue($php->get->foo == 5);
     }
