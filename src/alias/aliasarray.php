@@ -97,5 +97,27 @@ function ArrayEndsWith($haystack, $needle, $ignorecase = false) {
     }
     return false;
 }
+/**
+ * Applies a regex search on the array values
+ * @param array $haystack the array to search in
+ * @param string $needle the regex
+ * @return boolean
+ */
+function ArrayMatch($haystack, $needle) {
+    if (empty($haystack) || empty($needle) || !is_string($needle)) {
+        return false;
+    }
+    foreach ($haystack as $value) {
+        if (is_array($value) || is_object($value)) {
+            $sub = \ArrayMatch($value, $needle);
+        } else {
+            $sub = \Match($value, $needle);
+        }
+        if ($sub === true) {
+            return true;
+        }
+    }
+    return false;
+}
 
 ?>
