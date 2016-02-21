@@ -119,10 +119,34 @@ class AliasArrayTest extends PHPUnit_Framework_TestCase {
         $got = \ArrayContains(array("test", $dummy), "mm");
         $this->assertTrue($got);
     }
+
     public function testArrayStartsWithSubObject() {
         $dummy = new \stdClass();
         $dummy->foo = "dummy";
-        $got = \ArrayStartsWith(array("test",$dummy), "dumm");
+        $got = \ArrayStartsWith(array("test", $dummy), "dumm");
+        $this->assertTrue($got);
+    }
+
+    public function testArrayMatchNeedleEmpty() {
+        $got = \ArrayMatch(array("test"), "");
+        $this->assertFalse($got);
+    }
+
+    public function testArrayMatchHaystackEmpty() {
+        $got = \ArrayMatch(array(), "x");
+        $this->assertFalse($got);
+    }
+
+    public function testArrayMatchSubObject() {
+        $dummy = new \stdClass();
+        $dummy->foo = "dummy";
+        $got = \ArrayMatch(array("test", $dummy), "/my/");
+        $this->assertTrue($got);
+    }
+
+    public function testArrayMatchTrueDeepArray() {
+        $data = array("test", array("subtest", "needle"));
+        $got = \ArrayMatch($data, "/[s]+/");
         $this->assertTrue($got);
     }
 

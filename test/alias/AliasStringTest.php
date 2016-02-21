@@ -107,6 +107,26 @@ class AliasStringTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse($got);
     }
 
+    public function testMatchNoMatch() {
+        $got = \Match("foo", "/\d+/");
+        $this->assertFalse($got);
+    }
+
+    public function testMatchDelimiterMissing() {
+        $got = \Match("foo", "f");
+        $this->assertFalse($got);
+    }
+
+    public function testMatchLiteralMatch() {
+        $got = \Match("foo", "/f/");
+        $this->assertTrue($got);
+    }
+
+    public function testMatchRegexMatch() {
+        $got = \Match("1337", "/\d+/");
+        $this->assertTrue($got);
+    }
+
 }
 
 ?>

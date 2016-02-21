@@ -63,16 +63,34 @@ function EndsWith($haystack, $needle, $ignorecase = false) {
     $needleLength = strlen($needle);
     if ($needleLength > $haystackLength) {
         return false;
-    } 
-    if ($ignorecase){
+    }
+    if ($ignorecase) {
         $needle = strtolower($needle);
         $haystack = strtolower($haystack);
     }
     $index = strrpos($haystack, $needle);
-    if ($index === false){
+    if ($index === false) {
         return false;
-    }    
+    }
     return $index + $needleLength == $haystackLength;
+}
+/**
+ * Checks if a pattern applies on a string
+ * @param string $haystack the string to search in
+ * @param string $needle the regex pattern
+ * @return boolean
+ */
+function Match($haystack, $needle) {
+    if (empty($needle) || empty($haystack) || !is_string($haystack)) {
+        return false;
+    }
+    $match;
+    try {
+        $match = preg_match_all($needle, $haystack) != 0;
+    } catch (Exception $ex) {       
+        $match = false;
+    }
+    return $match;
 }
 
 ?>
