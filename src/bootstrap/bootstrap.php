@@ -3,11 +3,24 @@
 /**
  * Bootstraps a system 
  */
-class BootStrap {
+class BTRBootStrap {
 
-    private $units = array();
+    /**
+     * The Modules
+     * @var mixed[]
+     */
+    private static $units = array();
+
+    /**
+     * the bootstrapped dir
+     * @var string
+     */
     private $dir = null;
 
+    /**
+     * Konstructor
+     * @param string $dir the dir to search the units in
+     */
     public function __construct($dir) {
         if (file_exists($dir)) {
             $this->dir = $dir;
@@ -16,32 +29,38 @@ class BootStrap {
         }
     }
 
+    /**
+     * Start the bootstrapping process
+     * @return boolean
+     */
     private function Bootstrap() {
         if (!empty($this->dir)) {
             $files = scandir($this->dir, SCANDIR_SORT_ASCENDING);
+            $units = array();
             foreach ($files as $key => $file) {
                 if (\BTRString::EndsWith($file, ".php")) {
                     $path = $this->dir . "$file";
-                    $this->LoadUnit($path);
+                    include $path;
+                    $units[] = $path;
                 }
             }
+            foreach ($units as $value) {
+                $name = basename($value, ".php");
+                $unit = new $name();
+                $this->AddUnit($unit);
+            }
             return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-    private function LoadUnit($path) {
-        if (!file_exists($path)) {
-            return false;
         } else {
-            require_once $path;
-            return true;
+            return false;
         }
     }
 
-    public function AddUnit($object) {
+    /**
+     * Adds a unit to the unit list
+     * @param mixded $object
+     * @return boolean
+     */
+    private function AddUnit($object) {
         $implements = array_keys(class_implements($object));
         $interface = "";
         if (count($implements) == 0) {
@@ -49,24 +68,62 @@ class BootStrap {
         } else {
             $interface = $implements[0];
         }
-        if (!isset($this->units[$interface])) {
-            $this->units[$interface] = array();
+        if (!isset(\BootStrap::$units[$interface])) {
+            \BootStrap::$units[$interface] = array();
         }
-        if (!in_array($object, $this->units[$interface])) {
-            $this->units[$interface][get_class($object)] = $object;
+        if (!in_array($object, \BootStrap::$units[$interface])) {
+            \BootStrap::$units[$interface][get_class($object)] = $object;
         }
         return true;
     }
 
+    /**
+     * Get all units
+     * @return mixed[]
+     */
     public function GetUnits() {
-        if (count($this->units) == 0) {
+        if (count(\BootStrap::$units) == 0) {
             $this->Bootstrap();
         }
-        return $this->units;
+        return \BootStrap::$units;
     }
 
-    public function GetUnit() {
-        
+    /**
+     * Get a bootstrapped plugin by its name
+     * @param string $unit the unit class name
+     * @return null | mixed
+     */
+    public function GetUnit($unit) {
+        if (count(\BootStrap::$units) == 0) {
+            $this->Bootstrap();
+        }
+        $units = $this->GetUnits();
+        foreach ($units as $value) {
+            if (is_array($value)) {
+                $keys = array_keys($value);
+                if (in_array($unit, $keys)) {
+                    return $value[$unit];
+                }
+            }
+        }
+        return null;
+    }
+    /**
+     * Get the Units by their implementation
+     * @param string $implementation the name of the implementation (Interface Name)
+     * @return null | array
+     */
+    public function GetUnitsByImplementation($implementation) {
+        if (empty($implementation)) {
+            return null;
+        }
+        $units = $this->GetUnits();
+        foreach ($units as $key => $value) {
+            if ($key === $implementation && is_array($value)) {
+                return $units;
+            }
+        }
+        return null;
     }
 
 }

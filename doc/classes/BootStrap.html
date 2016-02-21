@@ -136,10 +136,10 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1656737452"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1626382682"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1656737452" class="accordion-body collapse in">
+            <div id="namespace-1626382682" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                     
@@ -168,8 +168,8 @@
                                             </nav>
                     <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
 
-                    <h1><small>\</small>BTRString</h1>
-                    <p><em>Extends the string type by useful functions</em></p>
+                    <h1><small>\</small>BootStrap</h1>
+                    <p><em>Bootstraps a system</em></p>
                     
                     
                                         
@@ -188,10 +188,10 @@
                         </section>
                         <section class="row-fluid public">
                             <section class="span4">
-                                                                    <a href="../classes/BTRString.html#method_Contains" class="">Contains()</a><br />
-                                                                    <a href="../classes/BTRString.html#method_StartsWith" class="">StartsWith()</a><br />
-                                                                    <a href="../classes/BTRString.html#method_EndsWith" class="">EndsWith()</a><br />
-                                                                    <a href="../classes/BTRString.html#method_Match" class="">Match()</a><br />
+                                                                    <a href="../classes/BootStrap.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/BootStrap.html#method_GetUnits" class="">GetUnits()</a><br />
+                                                                    <a href="../classes/BootStrap.html#method_GetUnit" class="">GetUnit()</a><br />
+                                                                    <a href="../classes/BootStrap.html#method_GetUnitsByImplementation" class="">GetUnitsByImplementation()</a><br />
                                                             </section>
                             <section class="span4">
                                                                     <em>No public properties found</em>
@@ -213,10 +213,12 @@
                         </section>
                         <section class="row-fluid private">
                             <section class="span4">
-                                                                    <em>No private methods found</em>
+                                                                    <a href="../classes/BootStrap.html#method_Bootstrap" class="">Bootstrap()</a><br />
+                                                                    <a href="../classes/BootStrap.html#method_AddUnit" class="">AddUnit()</a><br />
                                                             </section>
                             <section class="span4">
-                                                                    <em>No private properties found</em>
+                                                                    <a href="../classes/BootStrap.html#property_units" class="">$units</a><br />
+                                                                    <a href="../classes/BootStrap.html#property_dir" class="">$dir</a><br />
                                                             </section>
                             <section class="span4">
                                 <em>N/A</em>
@@ -229,12 +231,12 @@
                     
                     <dl>
                         <dt>File</dt>
-                            <dd><a href="../files/alias.aliasstring.html"><div class="path-wrapper">alias/aliasstring.php</div></a></dd>
+                            <dd><a href="../files/bootstrap.bootstrap.html"><div class="path-wrapper">bootstrap/bootstrap.php</div></a></dd>
                                                 <dt>Package</dt>
                             <dd><div class="namespace-wrapper">Default</div></dd>
                                                 <dt>Class hierarchy</dt>
                             <dd class="hierarchy">
-                                                                                                                                                                    <div class="namespace-wrapper">\BTRString</div>
+                                                                                                                                                                    <div class="namespace-wrapper">\BootStrap</div>
                             </dd>
 
                         
@@ -250,7 +252,63 @@
             </div>
 
                         
-                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_units" name="property_units" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$units</h3>
+                <pre class="signature">$units : array&lt;mixed,mixed&gt;</pre>
+                <p><em>The Modules</em></p>
+                
+
+                                <h4>Type</h4>
+                array&lt;mixed,mixed&gt;
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_dir" name="property_dir" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$dir</h3>
+                <pre class="signature">$dir : string</pre>
+                <p><em>the bootstrapped dir</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
                                     <a id="methods" name="methods"></a>
             <div class="row-fluid">
                 <div class="span8 content class"><h2>Methods</h2></div>
@@ -259,91 +317,29 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_Contains" name="method_Contains" class="anchor"></a>
+            <a id="method___construct" name="method___construct" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">Contains()</h3>
+                <h3 class="public ">__construct()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">Contains(string  <span class="argument">$haystack</span>, string  <span class="argument">$needle</span>, boolean  <span class="argument">$ignorecase = false</span>) : boolean</pre>
-                <p><em>Checks if a string contains a needle</em></p>
+                <pre class="signature" style="margin-right: 54px;">__construct(string  <span class="argument">$dir</span>) </pre>
+                <p><em>Konstructor</em></p>
                 
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
                                                     <tr>
                                 <td>string</td>
-                                <td>$haystack </td>
-                                <td><p>the haystack to search in</p></td>
-                            </tr>
-                                                    <tr>
-                                <td>string</td>
-                                <td>$needle </td>
-                                <td><p>the needle to search. No-String parameters will be converted using strval()!</p></td>
-                            </tr>
-                                                    <tr>
-                                <td>boolean</td>
-                                <td>$ignorecase </td>
-                                <td><p>Ignore case</p></td>
+                                <td>$dir </td>
+                                <td><p>the dir to search the units in</p></td>
                             </tr>
                                             </table>
                 
                 
-                                    <h4>Returns</h4>
-                    boolean
-                                    				
+                				
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
-                            <span class="label label-info">static</span>
-                                                            <dl>
-                                                                                            <dt>See also</dt>
-                                                                <dd><a href=""><span class="namespace-wrapper"></span></a></dd>
-                                                                </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_StartsWith" name="method_StartsWith" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">StartsWith()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">StartsWith(string  <span class="argument">$haystack</span>, string  <span class="argument">$needle</span>, boolean  <span class="argument">$ignorecase = false</span>) : boolean</pre>
-                <p><em>Checks if a string starts with another string</em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>string</td>
-                                <td>$haystack </td>
-                                <td><p>the haystack to search in</p></td>
-                            </tr>
-                                                    <tr>
-                                <td>string</td>
-                                <td>$needle </td>
-                                <td><p>the string the haystack has to start with</p></td>
-                            </tr>
-                                                    <tr>
-                                <td>boolean</td>
-                                <td>$ignorecase </td>
-                                <td><p>Ignore case</p></td>
-                            </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    boolean
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                            <span class="label label-info">static</span>
                                                             <dl>
                                                                             </dl>
             <h2>Tags</h2>
@@ -355,42 +351,23 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_EndsWith" name="method_EndsWith" class="anchor"></a>
+            <a id="method_GetUnits" name="method_GetUnits" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">EndsWith()</h3>
+                <h3 class="public ">GetUnits()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">EndsWith(string  <span class="argument">$haystack</span>, string  <span class="argument">$needle</span>, boolean  <span class="argument">$ignorecase = false</span>) : boolean</pre>
-                <p><em>Checks if a string ends with another string</em></p>
+                <pre class="signature" style="margin-right: 54px;">GetUnits() : array&lt;mixed,mixed&gt;</pre>
+                <p><em>Get all units</em></p>
                 
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>string</td>
-                                <td>$haystack </td>
-                                <td><p>the haystack to search in</p></td>
-                            </tr>
-                                                    <tr>
-                                <td>string</td>
-                                <td>$needle </td>
-                                <td><p>the string the haystack has to start with</p></td>
-                            </tr>
-                                                    <tr>
-                                <td>boolean</td>
-                                <td>$ignorecase </td>
-                                <td><p>Ignore case</p></td>
-                            </tr>
-                                            </table>
                 
                 
                                     <h4>Returns</h4>
-                    boolean
+                    array&lt;mixed,mixed&gt;
                                     				
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
-                            <span class="label label-info">static</span>
                                                             <dl>
                                                                             </dl>
             <h2>Tags</h2>
@@ -402,25 +379,119 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_Match" name="method_Match" class="anchor"></a>
+            <a id="method_GetUnit" name="method_GetUnit" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">Match()</h3>
+                <h3 class="public ">GetUnit()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">Match(string  <span class="argument">$haystack</span>, string  <span class="argument">$needle</span>) : boolean</pre>
-                <p><em>Checks if a pattern applies on a string</em></p>
+                <pre class="signature" style="margin-right: 54px;">GetUnit(string  <span class="argument">$unit</span>) : null</pre>
+                <p><em>Get a bootstrapped plugin by its name</em></p>
                 
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
                                                     <tr>
                                 <td>string</td>
-                                <td>$haystack </td>
-                                <td><p>the string to search in</p></td>
+                                <td>$unit </td>
+                                <td><p>the unit class name</p></td>
                             </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    null
+                                            &mdash; <p>| mixed</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetUnitsByImplementation" name="method_GetUnitsByImplementation" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetUnitsByImplementation()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetUnitsByImplementation(  <span class="argument">$implementation</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
                                                     <tr>
-                                <td>string</td>
-                                <td>$needle </td>
-                                <td><p>the regex pattern</p></td>
+                                <td></td>
+                                <td>$implementation </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_Bootstrap" name="method_Bootstrap" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">Bootstrap()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">Bootstrap() : boolean</pre>
+                <p><em>Start the bootstrapping process</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_AddUnit" name="method_AddUnit" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">AddUnit()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">AddUnit(\mixded  <span class="argument">$object</span>) : boolean</pre>
+                <p><em>Adds a unit to the unit list</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\mixded</td>
+                                <td>$object </td>
+                                <td></td>
                             </tr>
                                             </table>
                 
@@ -432,7 +503,6 @@
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
-                            <span class="label label-info">static</span>
                                                             <dl>
                                                                             </dl>
             <h2>Tags</h2>
@@ -442,16 +512,16 @@
         </aside>
     </div>
 
-                                                                    </div>
+                                    </div>
     </section>
 
     <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="source-view-label">aliasstring.php</h3>
+            <h3 id="source-view-label">bootstrap.php</h3>
         </div>
         <div class="modal-body">
-            <pre data-src="../files/alias/aliasstring.php.txt" class="language-php line-numbers"></pre>
+            <pre data-src="../files/bootstrap/bootstrap.php.txt" class="language-php line-numbers"></pre>
         </div>
     </div>
 
