@@ -1,5 +1,5 @@
 <?php
 
-define("__BETTERPHP_ALL__", "x");
+define("__BUTTERPHP_ALL__", "x");
 require_once "./src/autoload.php";
 ?>

@@ -28,6 +28,32 @@ class AliasArrayTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse($got);
     }
 
+    public function testArrayContainsIterativeTrue() {
+        $got = \ArrayContainsIterative(array("test"), "te");
+        $this->assertTrue($got);
+    }
+
+    public function testArrayContainsIterativeTrueDeepArray() {
+        $data = array("test", array("subtest", "subtest"), "subtest", array("subtest", "subtest", array("subtest", "needle")));
+        $got = \ArrayContainsIterative($data, "needle");
+        $this->assertTrue($got);
+    }
+
+    public function testArrayContainsIterativeTrueIgnoreCase() {
+        $got = \ArrayContainsIterative(array("test"), "TES", true);
+        $this->assertTrue($got);
+    }
+
+    public function testArrayContainsIterativeNeedleEmpty() {
+        $got = \ArrayContainsIterative(array("test"), "");
+        $this->assertFalse($got);
+    }
+
+    public function testArrayContainsIterativeHaystackEmpty() {
+        $got = \ArrayContainsIterative(array(), "x");
+        $this->assertFalse($got);
+    }
+
     public function testArrayStartsWithTrue() {
         $got = \ArrayStartsWith(array("test"), "te");
         $this->assertTrue($got);
@@ -78,6 +104,26 @@ class AliasArrayTest extends PHPUnit_Framework_TestCase {
     public function testArrayEndsWithHaystackEmpty() {
         $got = \ArrayEndsWith(array(), "x");
         $this->assertFalse($got);
+    }
+
+    public function testArrayEndsWithSubObject() {
+        $dummy = new \stdClass();
+        $dummy->foo = "dummy";
+        $got = \ArrayEndsWith(array("test", $dummy), "my");
+        $this->assertTrue($got);
+    }
+
+    public function testArrayContainsSubObject() {
+        $dummy = new \stdClass();
+        $dummy->foo = "dummy";
+        $got = \ArrayContains(array("test", $dummy), "mm");
+        $this->assertTrue($got);
+    }
+    public function testArrayStartsWithSubObject() {
+        $dummy = new \stdClass();
+        $dummy->foo = "dummy";
+        $got = \ArrayStartsWith(array("test",$dummy), "dumm");
+        $this->assertTrue($got);
     }
 
 }
