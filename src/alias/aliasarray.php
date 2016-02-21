@@ -109,7 +109,7 @@ class BTRArray {
      * @param string $needle the regex
      * @return boolean
      */
-    function ArrayMatch($haystack, $needle) {
+    static function ArrayMatch($haystack, $needle) {
         if (empty($haystack) || empty($needle) || !is_string($needle)) {
             return false;
         }
