@@ -68,11 +68,11 @@ class BTRBootStrap {
         } else {
             $interface = $implements[0];
         }
-        if (!isset(\BootStrap::$units[$interface])) {
-            \BootStrap::$units[$interface] = array();
+        if (!isset(\BTRBootStrap::$units[$interface])) {
+            \BTRBootStrap::$units[$interface] = array();
         }
-        if (!in_array($object, \BootStrap::$units[$interface])) {
-            \BootStrap::$units[$interface][get_class($object)] = $object;
+        if (!in_array($object, \BTRBootStrap::$units[$interface])) {
+            \BTRBootStrap::$units[$interface][get_class($object)] = $object;
         }
         return true;
     }
@@ -82,10 +82,10 @@ class BTRBootStrap {
      * @return mixed[]
      */
     public function GetUnits() {
-        if (count(\BootStrap::$units) == 0) {
+        if (count(\BTRBootStrap::$units) == 0) {
             $this->Bootstrap();
         }
-        return \BootStrap::$units;
+        return \BTRBootStrap::$units;
     }
 
     /**
@@ -94,7 +94,7 @@ class BTRBootStrap {
      * @return null | mixed
      */
     public function GetUnit($unit) {
-        if (count(\BootStrap::$units) == 0) {
+        if (count(\BTRBootStrap::$units) == 0) {
             $this->Bootstrap();
         }
         $units = $this->GetUnits();
